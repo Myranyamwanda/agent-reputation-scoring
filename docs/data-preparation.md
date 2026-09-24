@@ -92,3 +92,31 @@ Features produced:
   weekly task counts - measures burstiness of activity over time
 
 Output: data/processed/agent_features.csv (not committed - gitignored)
+
+
+## Time-windowed features - added for sample size
+
+The agent-lifetime feature set (246 rows) falls short of standard
+events-per-variable guidance for reliable model training (Peduzzi et
+al.: ~10-20 minority-class events per predictor; with 6 features that
+is 60-120 minimum, requiring 300-600+ total agents at a realistic
+15-20% injection rate - more than the 246 available).
+
+To address this without needing more real agents, features are also
+computed at agent-month granularity: one row per agent per month they
+had CRM activity, instead of one row per agent for their whole
+history. This produces 12,003 rows (AE 4,751 / SDR 3,626 / BDR 3,626),
+comfortably clearing the EPV threshold even at conservative injection
+rates, and better matches how fraud detection typically works - as a
+change in an agent's own behaviour over time, not a single lifetime
+average.
+
+activity_velocity is redefined at this granularity as
+activity_volume / calendar days in that month (rather than the
+agent's full observed date-range), since each row is already scoped
+to one month.
+
+Both feature sets are produced by ml/src/feature_engineering.py:
+- data/processed/agent_features.csv (agent-lifetime, 246 rows)
+- data/processed/agent_month_features.csv (agent-month, 12,003 rows -
+  primary dataset for model training)
