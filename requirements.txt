@@ -1,0 +1,11 @@
+﻿pandas
+numpy
+scikit-learn
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+jupyter
+matplotlib
+boto3
