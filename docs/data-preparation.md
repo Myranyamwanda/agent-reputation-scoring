@@ -72,3 +72,23 @@ currently says "SDR and BDR" only.
 3. Engineer behavioural features: activity_volume, task_frequency,
    active_days, activity_velocity, leads_handled, temporal_concentration
 4. Apply synthetic suspicious-behaviour labels to a controlled subset
+
+
+## Feature engineering - implemented
+
+ml/src/feature_engineering.py aggregates tasks.csv and lead.csv up to
+one row per agent (246 rows, matching the AE/SDR/BDR scoring
+population - confirmed independently, since Manager and Director
+generate zero task activity in the raw data).
+
+Features produced:
+- activity_volume: total task count for the agent
+- active_days: distinct calendar days with task activity
+- task_frequency: activity_volume / active_days (tasks per active day)
+- activity_velocity: activity_volume / full tenure span in days
+  (tasks per calendar day, including idle stretches)
+- leads_handled: count of leads owned by the agent (lead.csv)
+- temporal_concentration: coefficient of variation (std/mean) of
+  weekly task counts - measures burstiness of activity over time
+
+Output: data/processed/agent_features.csv (not committed - gitignored)
