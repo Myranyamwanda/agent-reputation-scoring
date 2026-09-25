@@ -64,30 +64,4 @@ uvicorn backend.main:app --reload
 
 Then visit `http://127.0.0.1:8000/docs`.
 
-## Current Development Stage
 
-**Sprint 1 — Data Preparation and Development Environment Setup**
-
-| Task | Status |
-| --- | --- |
-| Create project repository | done |
-| Create project folder structure | done |
-| Create Python virtual environment | pending |
-| Install dependencies | pending |
-| Create requirements.txt | done |
-| Create .gitignore | done |
-| Create .env.example | done |
-| Create README | done |
-| Initialise Git | pending |
-| Prepare CRM dataset | pending |
-| Inspect CRM columns | pending |
-| Check missing values | pending |
-| Check duplicates | pending |
-| Identify agent/lead/activity relationships | pending |
-| Create initial FastAPI application | pending |
-| Verify /health endpoint | pending |
-| Create basic automation scripts | pending |
-| Commit progress to Git | pending |
-| Create GitHub repository | pending |
-| Prepare PostgreSQL | pending |
-| Prepare S3 / SageMaker | pending |
