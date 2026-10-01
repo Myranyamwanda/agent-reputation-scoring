@@ -120,3 +120,30 @@ Both feature sets are produced by ml/src/feature_engineering.py:
 - data/processed/agent_features.csv (agent-lifetime, 246 rows)
 - data/processed/agent_month_features.csv (agent-month, 12,003 rows -
   primary dataset for model training)
+
+## Synthetic suspicious-behaviour labels - added for Sprint 2
+
+No ground-truth fraud label exists in the source data (user.csv,
+lead.csv, tasks.csv). This is expected for this kind of academic
+fraud-detection project - real investigated-fraud outcomes are not
+available. Following standard practice in fraud/anomaly-detection
+research (e.g. the CERT Insider Threat Dataset, which also relies on
+synthetically injected malicious behaviour), a synthetic
+`is_suspicious` label was derived on the agent-month feature set
+(see ml/src/label_generation.py) using two named behavioural rules:
+
+1. Bursty behaviour: activity_velocity and temporal_concentration
+   both at or above their 80th percentile.
+2. Padding behaviour: activity_volume at or above its 75th
+   percentile, with zero leads_handled in that month.
+
+The two rules are combined with OR logic, giving a combined flag rate
+of approximately 9.2% of agent-month rows. A random 3% label-noise
+step was then applied (fixed seed, independent of the rules) to avoid
+a label that is a deterministic function of the features, and to more
+realistically simulate imperfect real-world fraud labeling. The final
+positive rate is approximately 11.5%.
+
+This is an explicit, documented scope limitation: the labels reflect
+a behavioural heuristic, not real investigated fraud outcomes, and
+this will be stated plainly in the Chapter 5/6 write-up.

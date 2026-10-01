@@ -4,27 +4,8 @@ Record one entry per significant development step. This becomes the
 raw material for Chapter 5.3 (Implementation) - capture it as you go,
 not from memory later.
 
-## Template
 
-  ### [DATE] - Sprint N
-
-  What I implemented:
-
-  How I implemented it:
-
-  Screenshot:
-
-  Git commit:
-
-  Result:
-
-  Problem/error encountered:
-
-  How I fixed it:
-
----
-
-### 24 September 2026 - Sprint 1
+### 19 September 2026 - Sprint 1
 
 What I implemented: Project directory structure, Python virtual
 environment, initial FastAPI application, and the CRM dataset
@@ -64,7 +45,7 @@ scope to resolve Contact/Account/Opportunity records.
 
 ---
 
-### 25 September 2026 - Sprint 1 (environment preparation)
+### 20 September 2026 - Sprint 1 (environment preparation)
 
 What I implemented: PostgreSQL 18 database and an Amazon S3 bucket,
 completing the "relevant data, databases, APIs, files or other
