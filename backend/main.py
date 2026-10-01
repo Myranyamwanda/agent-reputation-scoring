@@ -1,4 +1,11 @@
-﻿from fastapi import FastAPI
+﻿from pathlib import Path
+
+from fastapi import FastAPI
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+DASHBOARD_DIR = BASE_DIR / "dashboard"
 
 app = FastAPI(
     title="Agent Reputation Scoring Framework",
@@ -6,10 +13,22 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.mount("/static", StaticFiles(directory=str(DASHBOARD_DIR)), name="static")
+
 
 @app.get("/")
 def root():
-    return {"message": "Agent Reputation Scoring Framework API"}
+    return FileResponse(DASHBOARD_DIR / "index.html")
+
+
+@app.get("/login")
+def login_page():
+    return FileResponse(DASHBOARD_DIR / "index.html")
+
+
+@app.get("/signup")
+def signup_page():
+    return FileResponse(DASHBOARD_DIR / "index.html")
 
 
 @app.get("/health")

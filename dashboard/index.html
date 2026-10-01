@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agent Reputation | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-panel">
+        <div class="brand-row">
+          <div class="brand-mark">A</div>
+          <span>Agent Reputation</span>
+        </div>
+
+        <div class="hero-content">
+          <div class="eyebrow">Trust, visibility, and smarter compliance</div>
+          <h1>Track agent performance with confidence.</h1>
+          <p>
+            Monitor reputation signals, flag risky behavior early, and give your
+            compliance team a clearer view of every agent in motion.
+          </p>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <strong>94.2%</strong>
+            <span>Risk signal accuracy</span>
+          </div>
+          <div class="stat-card">
+            <strong>12k+</strong>
+            <span>Agent interactions</span>
+          </div>
+          <div class="stat-card">
+            <strong>24/7</strong>
+            <span>Monitoring coverage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-panel">
+        <div class="auth-card">
+          <div class="tab-header">
+            <button class="tab-button active" data-target="login">Log in</button>
+            <button class="tab-button" data-target="signup">Sign up</button>
+          </div>
+
+          <div class="form-container">
+            <form id="loginForm" class="auth-form active">
+              <h2>Welcome back</h2>
+              <p class="subtext">Access your compliance dashboard</p>
+
+              <label>
+                <span>Email address</span>
+                <input type="email" placeholder="name@company.com" />
+              </label>
+
+              <label>
+                <span>Password</span>
+                <input type="password" placeholder="Enter your password" />
+              </label>
+
+              <div class="form-row">
+                <label class="checkbox-row">
+                  <input type="checkbox" />
+                  <span>Remember me</span>
+                </label>
+                <a href="#">Forgot password?</a>
+              </div>
+
+              <button type="submit" class="primary-btn">Log in</button>
+            </form>
+
+            <form id="signupForm" class="auth-form">
+              <h2>Create account</h2>
+              <p class="subtext">Start protecting your agent network</p>
+
+              <div class="split-fields">
+                <label>
+                  <span>First name</span>
+                  <input type="text" placeholder="Jane" />
+                </label>
+                <label>
+                  <span>Last name</span>
+                  <input type="text" placeholder="Doe" />
+                </label>
+              </div>
+
+              <label>
+                <span>Work email</span>
+                <input type="email" placeholder="jane@company.com" />
+              </label>
+
+              <label>
+                <span>Password</span>
+                <input type="password" placeholder="Create a password" />
+              </label>
+
+              <label>
+                <span>Organization</span>
+                <input type="text" placeholder="Agency or team name" />
+              </label>
+
+              <button type="submit" class="primary-btn">Sign up</button>
+            </form>
+          </div>
+
+          <div class="divider"><span>or continue with</span></div>
+
+          <div class="social-grid">
+            <button type="button" class="social-btn">Google</button>
+            <button type="button" class="social-btn">Microsoft</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
